@@ -1,0 +1,82 @@
+﻿@inherits UmbracoViewPage<Umpraco.Models.ContactModel>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+@using (Html.BeginUmbracoForm("SubmitForm", "ContactSurface", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.ValidationSummary()
+    </div>
+    <div class="card"  style="margin-top:5rem">
+        <div class="card-header">
+            <h4 class="text-center">Send Email</h4>
+        </div>
+        <div class="card-body">
+            <div class="row m-auto">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-xs-4">
+                            @Html.LabelFor(m => m.Subject)
+                        </div>
+                        <div class="col-xs-12">
+                            @Html.TextBoxFor(m => m.Subject, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-md-6">
+
+                    <div class="form-group">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.LastName)
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>*@
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.EmailAddress)
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.LastName)
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>*@
+                <div class="col-md-12">
+
+
+                    <div class="form-group">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.Message)
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="card-footer  d-flex justify-content-end">
+            <button  class="btn btn-primary mt-2" >Submit</button>
+        </div>
+    </div>
+   
+
+
+
+}
